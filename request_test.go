@@ -17,7 +17,7 @@ func TestUnmarshall_attrStringSlice(t *testing.T) {
 	tags := []string{"fiction", "sale"}
 	data := map[string]interface{}{
 		"data": map[string]interface{}{
-			"type":       "books",
+			"object":     "books",
 			"id":         "1",
 			"attributes": map[string]interface{}{"tags": tags},
 		},
@@ -143,8 +143,8 @@ func TestStringPointerField(t *testing.T) {
 	description := "Hello World!"
 	data := map[string]interface{}{
 		"data": map[string]interface{}{
-			"type": "books",
-			"id":   "5",
+			"object": "books",
+			"id":     "5",
 			"attributes": map[string]interface{}{
 				"author":      "aren55555",
 				"description": description,
@@ -375,8 +375,8 @@ func TestUnmarshalRelationships(t *testing.T) {
 func TestUnmarshalNullRelationship(t *testing.T) {
 	sample := map[string]interface{}{
 		"data": map[string]interface{}{
-			"type": "posts",
-			"id":   "1",
+			"object": "posts",
+			"id":     "1",
 			"attributes": map[string]interface{}{
 				"body":  "Hello",
 				"title": "World",
@@ -408,8 +408,8 @@ func TestUnmarshalNullRelationship(t *testing.T) {
 func TestUnmarshalNullRelationshipInSlice(t *testing.T) {
 	sample := map[string]interface{}{
 		"data": map[string]interface{}{
-			"type": "posts",
-			"id":   "1",
+			"object": "posts",
+			"id":     "1",
 			"attributes": map[string]interface{}{
 				"body":  "Hello",
 				"title": "World",
@@ -579,16 +579,16 @@ func TestUnmarshalManyPayload(t *testing.T) {
 	sample := map[string]interface{}{
 		"data": []interface{}{
 			map[string]interface{}{
-				"type": "posts",
-				"id":   "1",
+				"object": "posts",
+				"id":     "1",
 				"attributes": map[string]interface{}{
 					"body":  "First",
 					"title": "Post",
 				},
 			},
 			map[string]interface{}{
-				"type": "posts",
-				"id":   "2",
+				"object": "posts",
+				"id":     "2",
 				"attributes": map[string]interface{}{
 					"body":  "Second",
 					"title": "Post",
@@ -629,16 +629,16 @@ func TestManyPayload_withLinks(t *testing.T) {
 	sample := map[string]interface{}{
 		"data": []interface{}{
 			map[string]interface{}{
-				"type": "posts",
-				"id":   "1",
+				"object": "posts",
+				"id":     "1",
 				"attributes": map[string]interface{}{
 					"body":  "First",
 					"title": "Post",
 				},
 			},
 			map[string]interface{}{
-				"type": "posts",
-				"id":   "2",
+				"object": "posts",
+				"id":     "2",
 				"attributes": map[string]interface{}{
 					"body":  "Second",
 					"title": "Post",
@@ -706,8 +706,8 @@ func TestManyPayload_withLinks(t *testing.T) {
 func samplePayloadWithoutIncluded() map[string]interface{} {
 	return map[string]interface{}{
 		"data": map[string]interface{}{
-			"type": "posts",
-			"id":   "1",
+			"object": "posts",
+			"id":     "1",
 			"attributes": map[string]interface{}{
 				"body":  "Hello",
 				"title": "World",
@@ -716,19 +716,19 @@ func samplePayloadWithoutIncluded() map[string]interface{} {
 				"comments": map[string]interface{}{
 					"data": []interface{}{
 						map[string]interface{}{
-							"type": "comments",
-							"id":   "123",
+							"object": "comments",
+							"id":     "123",
 						},
 						map[string]interface{}{
-							"type": "comments",
-							"id":   "456",
+							"object": "comments",
+							"id":     "456",
 						},
 					},
 				},
 				"latest_comment": map[string]interface{}{
 					"data": map[string]interface{}{
-						"type": "comments",
-						"id":   "55555",
+						"object": "comments",
+						"id":     "55555",
 					},
 				},
 			},
